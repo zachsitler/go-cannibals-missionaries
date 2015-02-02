@@ -13,6 +13,25 @@ The problem can be broken down into a tree. The starting point is the root of th
                            2M/3C     3M/2C ....
                            ....         ...
 
+### Output
+
+```
+Solution found.
+Steps:
+M: 2, C: 2 <---------------- M: 1, C: 1
+M: 3, C: 2 ----------------> M: 0, C: 1
+M: 3, C: 0 <---------------- M: 0, C: 3
+M: 3, C: 1 ----------------> M: 0, C: 2
+M: 1, C: 1 <---------------- M: 2, C: 2
+M: 2, C: 2 ----------------> M: 1, C: 1
+M: 0, C: 2 <---------------- M: 3, C: 1
+M: 0, C: 3 ----------------> M: 3, C: 0
+M: 0, C: 1 <---------------- M: 3, C: 2
+M: 1, C: 1 ----------------> M: 2, C: 2
+M: 0, C: 0 <---------------- M: 3, C: 3
+``````
+```
+
 ### Installation
 
 Install [Go](https://golang.org/doc/install)
