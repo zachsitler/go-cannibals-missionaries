@@ -4,7 +4,7 @@ Three missionaries and three cannibals are on one side of a river, along with a 
 
 ### Implementaion
 
-The problem can be broken down into a graph. The starting point is the root of the node and the possible actions that can be made from that node are the children. A simple BFS search finds the first optimal solution, which is in 11 steps.
+The problem can be broken down into a tree. The starting point is the root of the node and the possible actions that can be made from that node are the children. A simple BFS search finds the first optimal solution, which is in 11 steps.
 
                                 3M/3C
                                 /   \
