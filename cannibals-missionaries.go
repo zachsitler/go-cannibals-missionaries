@@ -110,7 +110,6 @@ func getDirection(direction int) int {
 	return start
 }
 
-// Horrible way of printing the history of the final state in reverse
 func stateHistory(s state) {
 	current := s
 	path := []string{}
