@@ -19,7 +19,8 @@ var Q *lang.Queue
 // Run BFS on the state space and search for the steps to the solution
 func main() {
 	Q = lang.NewQueue()
-	Q.Push(state{cstart, mstart, start, nil})
+	Q.Push(state{mstart, cstart, start, nil})
+
 	for Q.Len() != 0 {
 		v := Q.Poll().(state)
 
@@ -89,11 +90,10 @@ func (s *state) getDirection() int {
 }
 
 func (s *state) stateHistory() {
-	current := s
 	path := []string{}
-	for current.parent != nil {
-		path = append(path, current.printState())
-		current = current.parent
+	for s != nil {
+		path = append(path, s.printState())
+		s = s.parent
 	}
 
 	for i := len(path) - 1; i >= 0; i-- {
@@ -103,10 +103,10 @@ func (s *state) stateHistory() {
 
 func (s *state) printState() string {
 	result := fmt.Sprintf("M: %d, C: %d", s.m, s.c)
-	if s.direction == start {
-		result += " <---------------- "
+	if s.direction == end {
+		result += " ----------------<> "
 	} else {
-		result += " ----------------> "
+		result += " <>---------------- "
 	}
 	result += fmt.Sprintf("M: %d, C: %d", mstart-s.m, cstart-s.c)
 	return result
@@ -129,7 +129,7 @@ func addState(parent *state, c, m int) {
 // that has no cannibals/missionaries and the boat is on the other side
 // side then we did it.
 func goalState(s state) bool {
-	if s.m+s.c != 0 || s.direction == start {
+	if s.m+s.c != 0 || s.direction != end {
 		return false
 	}
 
