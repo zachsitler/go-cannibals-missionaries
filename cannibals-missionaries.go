@@ -104,9 +104,9 @@ func (s *state) stateHistory() {
 func (s *state) printState() string {
 	result := fmt.Sprintf("M: %d, C: %d", s.m, s.c)
 	if s.direction == start {
-		result += " ----------------> "
-	} else {
 		result += " <---------------- "
+	} else {
+		result += " ----------------> "
 	}
 	result += fmt.Sprintf("M: %d, C: %d", mstart-s.m, cstart-s.c)
 	return result
