@@ -101,15 +101,15 @@ func (s *state) stateHistory() {
 	}
 }
 
-func (s *state) printState() string {
-	result := fmt.Sprintf("M: %d, C: %d", s.m, s.c)
+func (s *state) printState() (result string) {
+	result = fmt.Sprintf("M: %d, C: %d", s.m, s.c)
 	if s.direction == end {
 		result += " ----------------<> "
 	} else {
 		result += " <>---------------- "
 	}
 	result += fmt.Sprintf("M: %d, C: %d", mstart-s.m, cstart-s.c)
-	return result
+	return
 }
 
 // Add a state to the queue if it is valid.
