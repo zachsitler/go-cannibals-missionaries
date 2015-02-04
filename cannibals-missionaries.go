@@ -16,7 +16,7 @@ const (
 
 var Q *lang.Queue
 
-// Run BFS on the state space and search for the steps to the solution
+// Run BFS on the state space and search for the steps to the solution.
 func main() {
 	Q = lang.NewQueue()
 	Q.Push(state{mstart, cstart, start, nil})
@@ -46,7 +46,7 @@ type state struct {
 func (s *state) getChildren() {
 	for c := 0; c <= size; c++ {
 		for m := 0; m <= size; m++ {
-			// skip the useless case
+			// Skip the useless case.
 			if c == 0 && m == 0 {
 				continue
 			}
@@ -65,13 +65,13 @@ func (s *state) getChildren() {
 	}
 }
 
-// Ensure that a move doesn't kill any missionaries and doesn't break any rules
+// Ensure that a move doesn't kill any missionaries and doesn't break any rules.
 func (s *state) validState() bool {
-	// Make sure we aren't breaking any obvious rules
+	// Make sure we aren't breaking any obvious rules.
 	if s.m > mstart || s.c > cstart || s.m < 0 || s.c < 0 {
 		return false
 	}
-	// We don't want the cannibals to eat the missionaries
+	// We don't want the cannibals to eat the missionaries.
 	if s.m < s.c && s.m > 0 || mstart-s.m < cstart-s.c && mstart-s.m > 0 {
 		return false
 	}
