@@ -37,8 +37,5 @@ M: 0, C: 0 ----------------<> M: 3, C: 3
 Install [Go](https://golang.org/doc/install)
 
 ```sh
-$ git clone git@github.com:zachsitler/go-cannibals-missionaries.git
-$ cd go-cannibals-missionaries
-$ go install
-$ go run cannibals-missionaries.go
+$ go get github.com/zachsitler/go-cannibals-missionaries
 ```
